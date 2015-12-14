@@ -12,5 +12,6 @@ addons:
     paths:
       - dist
   s3_region: "eu-west-1"
-  deploy:
-   region: eu-central-1
+deploy:
+  provider: s3
+  region: eu-central-1
