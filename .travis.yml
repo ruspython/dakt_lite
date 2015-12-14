@@ -1,13 +1,10 @@
 language: node_js
 node_js:
   - "4.1"
-  - "4.0"
-  - "0.12"
 before_script:
   - npm install
   - npm install -g gulp
   - npm install -g casperjs
-  - source export_envs.sh
   - gulp dakt
 addons:
   artifacts: true
