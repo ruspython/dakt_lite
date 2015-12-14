@@ -9,11 +9,7 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 script: node_modules/karma/bin/karma start karma.conf.js --single-run
 addons:
-  artifacts:
-    paths:
-      - dist
-  s3_region: "eu-central-1"
-  endpoint: "s3.amazonaws.com"
+  artifacts: true
 deploy:
   provider: s3
   edge: true
