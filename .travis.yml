@@ -10,14 +10,14 @@ before_script:
 addons:
   artifacts:
     paths:
-    - dist/*.js
+    - dist
   s3_region: eu-west-1
 deploy:
   provider: s3
   edge: true
   region: "eu-central-1"
   upload-dir: "build"
-  skip_cleanup: true
+  local-dir: "dist"
   endpoint: "tda-travisci-daktyloskop.amazonaws.com"
   access_key_id:
     secure: aGZL5fRlKtpraTwovcuS7f6bgJWxSFRV7MCiFKpdG1MEMLrTmpPHb5xM4bBQujr/ui05SqwCNoa7TdANW3cZKUnbJQWksgYJIjUr2r+szsXS6RQeWx0kvlnUS8uJUiXoMA9h3aXAbzml9oeImO9pqsbj6WEA5gajhpM9VKhHpkXqGMiPzitt4TPE/oSOR6R0clt+xkUgwZ3SSzS4N0A9dBczfk2b/TdpGduthtXGwl1YY4wqRRGkQSc4F18nTgIe1na73JP10MmeCoGQdEMFrh4R/C4KxnXAFs42skMP3oiqKygjnY73/CcM5r9eo8mZKUKVrMwiRW1sVMIKN+JPPg+I5HCg/bAUVuBAumXJYW4uU1LzS5GGvu09snROGE/b8VErdUL8nLKMbnN1t9853sXIeEVDYjWhxmd+jDQ3Aur5U/2EKVoMWAWTsulWiwNKOf1KxEWI+rn0V417G+9XthmsS/KrlJx+CMn8tdkX8rpJHnxEwXO5itINAL30NCqbewsvxJsjYOyVGKUn0tp/eHKNRf/BuFmtHqQh8DB8giB37IeULN/QclTfzyufbu5Pk4REqtpf95azZ1BxfbmJ3wLMqjuuhfapLPmfZPZmErprxO1W+QSWUkiVHFd7ZMmQde80BLLESTHpcV/2/XqlCrv7rCr6i1vWDqDTiLIfObg=
