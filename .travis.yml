@@ -8,10 +8,6 @@ before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 script: node_modules/karma/bin/karma start karma.conf.js --single-run
-addons:
-  artifacts:
-    path:
-    - $HOME/build/ruspython/dakt_lite/dist/test.example.com/dakt.js
 deploy:
   provider: s3
   edge: true
