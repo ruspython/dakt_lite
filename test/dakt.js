@@ -1,21 +1,3 @@
-function setAdt(obj, keyPath, value) {
-    keyPath = keyPath.split(".");
-   lastKeyIndex = keyPath.length-1;
-   for (var i = 0; i < lastKeyIndex; ++ i) {
-     key = keyPath[i];
-     if ( typeof(obj[key]) != "object" )
-       obj[key] = {}
-     obj = obj[key];
-   }
-   obj[keyPath[lastKeyIndex]] = value;
-}
-
-if(typeof(ADTECH) == "undefined")
-{
-    ADTECH = {};
-} 
-
-
 Daktyloskop = window.Daktyloskop || {};
 (function (parent, w) {
     "use strict";
@@ -80,48 +62,6 @@ Daktyloskop = window.Daktyloskop || {};
     parent.HttpRequest = HttpRequest;
 })(Daktyloskop, window);
 
-Daktyloskop = window.Daktyloskop || {};
-(function (parent, w) {
-    "use strict";
-
-    function Sequence() {
-        this.list = []; // a list of functions
-        this.index = -1;
-        this.aborted = false;
-        this.finished = false;
-    }
-
-    Sequence.prototype = {
-        add: function (sequenceFunction) {
-            this.list.push(sequenceFunction);
-        },
-        start: function () {
-            this.index = -1;
-            this.aborted = false;
-            this.next();
-        },
-        end: function () {
-            if (typeof(this.onEnd) == "function") this.onEnd();
-            this.finished = true;
-        },
-        next: function () {
-            if (this.aborted) return;
-
-            this.index++;
-
-            if (this.index == this.list.length) return this.end();
-
-            var currFunction = this.list[this.index];
-
-            if (currFunction) currFunction(this);
-        },
-        abort: function () {
-            this.index = -1;
-            this.aborted = true;
-        }
-    };
-    parent.Sequence = Sequence;
-})(Daktyloskop, window);
 Daktyloskop = window.Daktyloskop || {};
 (function (parent, w) {
     "use strict";
@@ -451,7 +391,6 @@ Daktyloskop.module = window.Daktyloskop.module || {};
         caching = parent.caching || false;
         apiEndpoint = parent.apiEndpoint;
         logElem = parent.logElem || document.getElementsByTagName('body')[0];
-        moduleSequence = new parent.Sequence();
 
         if (!apiEndpoint) {
             throw "API endpoint must be set";
@@ -473,8 +412,7 @@ Daktyloskop.module = window.Daktyloskop.module || {};
         }
 
         parent.sessionUUID = parent.Hashes.uuid();
-        prepareDataToSend(moduleSequence);
-        moduleSequence.start();
+        prepareDataToSend();
     }
 
     //TODO: add public methods for adding data
@@ -487,22 +425,17 @@ Daktyloskop.module = window.Daktyloskop.module || {};
         sendData(JSON.stringify(parent.dataToSend), seq);
     }
 
-    function sendData(data, seq) {
+    function sendData(data) {
         var onRequestSuccess = function (res) {
 
                 parent.dataresponse = res;
-
-                seq.next();
-
                 parent.log('Request success', {success: true});
 
             },
             onRequestDelay = function () {
-                seq.next();
                 parent.log('Request delayed');
             },
             onRequestError = function (err) {
-                seq.next();
                 parent.log('Request error', err);
             }
             ;
@@ -599,7 +532,6 @@ Daktyloskop.module = window.Daktyloskop.module || {};
         caching = parent.caching || false;
         apiEndpoint = parent.apiEndpoint;
         logElem = parent.logElem || document.getElementsByTagName('body')[0];
-        moduleSequence = new parent.Sequence();
 
         if (!apiEndpoint) {
             throw "API endpoint must be set";
@@ -621,8 +553,7 @@ Daktyloskop.module = window.Daktyloskop.module || {};
         }
 
         parent.sessionUUID = parent.Hashes.uuid();
-        prepareDataToSend(moduleSequence);
-        moduleSequence.start();
+        prepareDataToSend();
     }
 
     //TODO: add public methods for adding data
@@ -635,22 +566,17 @@ Daktyloskop.module = window.Daktyloskop.module || {};
         sendData(JSON.stringify(parent.dataToSend), seq);
     }
 
-    function sendData(data, seq) {
+    function sendData(data) {
         var onRequestSuccess = function (res) {
 
                 parent.dataresponse = res;
-
-                seq.next();
-
                 parent.log('Request success', {success: true});
 
             },
             onRequestDelay = function () {
-                seq.next();
                 parent.log('Request delayed');
             },
             onRequestError = function (err) {
-                seq.next();
                 parent.log('Request error', err);
             }
             ;

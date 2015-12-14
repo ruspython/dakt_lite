@@ -3,5 +3,10 @@
         "apiEndpoint": "http://tda.lvh.me:3000/test/target.json",
         "logging": true,
         "caching": true
+    },
+    "test.example.com": {
+        "apiEndpoint": "http://tda.lvh.me:3000/test/target.json",
+        "logging": true,
+        "caching": true
     }
 }

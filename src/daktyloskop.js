@@ -65,7 +65,6 @@ Daktyloskop.module = window.Daktyloskop.module || {};
         caching = parent.caching || false;
         apiEndpoint = parent.apiEndpoint;
         logElem = parent.logElem || document.getElementsByTagName('body')[0];
-        moduleSequence = new parent.Sequence();
 
         if (!apiEndpoint) {
             throw "API endpoint must be set";

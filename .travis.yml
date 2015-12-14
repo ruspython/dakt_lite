@@ -6,6 +6,7 @@ before_script:
 - npm install -g gulp
 - npm install -g casperjs
 - gulp dakt
+script: node_modules/karma/bin/karma start karma.conf.js --single-run
 addons:
   artifacts:
     paths:
