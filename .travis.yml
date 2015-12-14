@@ -14,7 +14,7 @@ addons:
   artifacts:
     paths:
     - dist
-  s3_region: eu-west-1
+  s3_region: eu-central-1
 deploy:
   provider: s3
   edge: true
