@@ -11,5 +11,5 @@ addons:
   artifacts:
     paths:
       - dist
-  s3_region: "us-west-1"
+  s3_region: "eu-west-1"
 
