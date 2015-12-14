@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cool web site</title>
+    <!--[if !(IE)]><!-->
+    <script src="http://lvh.me:3000/dakt.js"></script>
+    <!--<script src="http://20minsub.lacolhost.com:3000/dist/20min.ch/main.js"></script>-->
+    <!--<![endif]-->
+
+    <!--[if lt IE 9]>
+    <script src="../dist/script-oldie.min.js"></script>
+    <![endif]-->
+
+    <style>
+        #logger {
+            margin: auto 10px;
+            width: 800px;
+            display: block;
+            height: 100px;
+        }
+        #logger p {
+            word-wrap:break-word
+        }
+    </style>
+    <!-- Variable to GTM-DataLayer -->
+    <script>
+        window.onload = function () {
+            Daktyloskop.init();
+        };
+    </script>
+</head>
+<body>
+<div id="logger"></div>
+
+</body>
+</html>

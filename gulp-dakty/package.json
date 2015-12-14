@@ -1,0 +1,34 @@
+{
+  "name": "dakty",
+  "version": "0.0.1",
+  "description": "Module for building daktyloskop scripts",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ruspython/gulp-dakty.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruspython/gulp-dakty/issues"
+  },
+  "homepage": "https://github.com/ruspython/gulp-dakty#readme",
+  "devDependencies": {
+    "buildify": "^0.4.0",
+    "concat": "^1.0.0",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-util": "^3.0.7",
+    "mkdirp": "^0.5.1",
+    "path": "^0.12.7",
+    "stream": "0.0.2",
+    "through": "^2.3.8",
+    "through2": "^2.0.0"
+  }
+}
