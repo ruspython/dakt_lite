@@ -13,6 +13,7 @@ addons:
     paths:
       - dist
   s3_region: "eu-central-1"
+  endpoint: "tda-travisci-daktyloskop.s3.amazonaws.com"
 deploy:
   provider: s3
   edge: true
