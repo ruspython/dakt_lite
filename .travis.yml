@@ -1,14 +1,25 @@
 language: node_js
 node_js:
-  - "4.1"
+- '4.1'
 before_script:
-  - npm install
-  - npm install -g gulp
-  - npm install -g casperjs
-  - gulp dakt
-  - ls
+- npm install
+- npm install -g gulp
+- npm install -g casperjs
+- gulp dakt
+- ls
 addons:
   artifacts:
     paths:
-      - dist/*.js
-  s3_region: "eu-west-1"
+    - dist/*.js
+  s3_region: eu-west-1
+deploy:
+  provider: s3
+  edge: true
+  access_key_id:
+    secure: aGZL5fRlKtpraTwovcuS7f6bgJWxSFRV7MCiFKpdG1MEMLrTmpPHb5xM4bBQujr/ui05SqwCNoa7TdANW3cZKUnbJQWksgYJIjUr2r+szsXS6RQeWx0kvlnUS8uJUiXoMA9h3aXAbzml9oeImO9pqsbj6WEA5gajhpM9VKhHpkXqGMiPzitt4TPE/oSOR6R0clt+xkUgwZ3SSzS4N0A9dBczfk2b/TdpGduthtXGwl1YY4wqRRGkQSc4F18nTgIe1na73JP10MmeCoGQdEMFrh4R/C4KxnXAFs42skMP3oiqKygjnY73/CcM5r9eo8mZKUKVrMwiRW1sVMIKN+JPPg+I5HCg/bAUVuBAumXJYW4uU1LzS5GGvu09snROGE/b8VErdUL8nLKMbnN1t9853sXIeEVDYjWhxmd+jDQ3Aur5U/2EKVoMWAWTsulWiwNKOf1KxEWI+rn0V417G+9XthmsS/KrlJx+CMn8tdkX8rpJHnxEwXO5itINAL30NCqbewsvxJsjYOyVGKUn0tp/eHKNRf/BuFmtHqQh8DB8giB37IeULN/QclTfzyufbu5Pk4REqtpf95azZ1BxfbmJ3wLMqjuuhfapLPmfZPZmErprxO1W+QSWUkiVHFd7ZMmQde80BLLESTHpcV/2/XqlCrv7rCr6i1vWDqDTiLIfObg=
+  secret_access_key:
+    secure: FBuKtevebM58R4ODsmDv0F9fimMYsX3bqqEe4t3/L81RPCqe/J6pjUhe6u2GO8pQsaERGEYTwhMeWIPa8FlxKbp3wsv/61D3cNo+vGzQN2PhcXSJyf2aRi033QIoH5WbcMTyMwkNXofDrG3sDk1MuNYrQIG4BvNIPqPLUCaR5zIFqXMDEbsb+Z8vrDuYSDZ5aK32ub1x+QKCQZU06tRm6q/MaKtuCPgy5QIFQrBtJPrdE57ISHna+iMl8cYnFA9qtFVPnyPvFPewlVdgv6CDJFynb+7Pkr2ko+s/CkLhO7pz/9XoCz3Y2vaI+XdsGPmADhKr6hgK5J1BhXvG6DQhQh6M6NRc88w5W4taH+BYW2vW+BfbaJRF0fCa4nex4plIcEZhYo9WAYjb4dPpJ9V0snzHyOrKPZYgUYE4NT7ud3j3BePdcFj+eZ3yI/1fEiliKe9NgRWxYvbKThinQt65H7b04BXMAY9JgFlv9dHcCNmUojz0mO1GdhDCUj6PYGBhx43Cso7ZvuRchFZ2gL3cwcZaroPsvHpHWfUoGsV43rrdUb4lAwEIjU9gWXvb4/PGGkex7nwY1aka7PLoJXMNuQZ82koYmujVNVo7Y++ZKAwnBW3YD7RETjz37IXDguvu/e4tCJIKDuvc8+TV7U4jRyBm998Lpd1qzDuH4Ugq090=
+  bucket: tda-travisci-daktyloskop
+  acl: private
+  on:
+    repo: ruspython/dakt_lite
