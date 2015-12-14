@@ -14,8 +14,6 @@ addons:
   s3_region: eu-west-1
 deploy:
   provider: s3
-  edge: true
-  region: "eu-west-1"
   upload-dir: "build"
   skip_cleanup: true
   endpoint: "tda-travisci-daktyloskop.amazonaws.com"
@@ -24,6 +22,5 @@ deploy:
   secret_access_key:
     secure: FBuKtevebM58R4ODsmDv0F9fimMYsX3bqqEe4t3/L81RPCqe/J6pjUhe6u2GO8pQsaERGEYTwhMeWIPa8FlxKbp3wsv/61D3cNo+vGzQN2PhcXSJyf2aRi033QIoH5WbcMTyMwkNXofDrG3sDk1MuNYrQIG4BvNIPqPLUCaR5zIFqXMDEbsb+Z8vrDuYSDZ5aK32ub1x+QKCQZU06tRm6q/MaKtuCPgy5QIFQrBtJPrdE57ISHna+iMl8cYnFA9qtFVPnyPvFPewlVdgv6CDJFynb+7Pkr2ko+s/CkLhO7pz/9XoCz3Y2vaI+XdsGPmADhKr6hgK5J1BhXvG6DQhQh6M6NRc88w5W4taH+BYW2vW+BfbaJRF0fCa4nex4plIcEZhYo9WAYjb4dPpJ9V0snzHyOrKPZYgUYE4NT7ud3j3BePdcFj+eZ3yI/1fEiliKe9NgRWxYvbKThinQt65H7b04BXMAY9JgFlv9dHcCNmUojz0mO1GdhDCUj6PYGBhx43Cso7ZvuRchFZ2gL3cwcZaroPsvHpHWfUoGsV43rrdUb4lAwEIjU9gWXvb4/PGGkex7nwY1aka7PLoJXMNuQZ82koYmujVNVo7Y++ZKAwnBW3YD7RETjz37IXDguvu/e4tCJIKDuvc8+TV7U4jRyBm998Lpd1qzDuH4Ugq090=
   bucket: tda-travisci-daktyloskop
-  acl: private
   on:
     repo: ruspython/dakt_lite
