@@ -7,6 +7,8 @@ before_script:
 - npm install -g casperjs
 - gulp dakt
 - pwd
+- ls
+- ls dist
 - echo $HOME
 addons:
   artifacts:
