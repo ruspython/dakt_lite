@@ -10,8 +10,5 @@ before_script:
 addons:
   artifacts:
     paths:
-      - dist
+      - dist/*.js
   s3_region: "eu-west-1"
-deploy:
-  provider: s3
-  region: eu-central-1
