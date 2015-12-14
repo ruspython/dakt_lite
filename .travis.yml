@@ -10,7 +10,8 @@ before_script:
 script: node_modules/karma/bin/karma start karma.conf.js --single-run
 addons:
   artifacts: true
-  path: 'test.example.com/dakt.js'
+  path:
+  - 'test.example.com/dakt.js'
 deploy:
   provider: s3
   edge: true
