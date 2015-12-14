@@ -6,14 +6,10 @@ before_script:
 - npm install -g gulp
 - npm install -g casperjs
 - gulp dakt
-- pwd
-- ls
-- ls dist
-- echo $HOME
 addons:
   artifacts:
     paths:
-    - dist
+      - dist
   s3_region: "eu-central-1"
 deploy:
   provider: s3
